@@ -1,0 +1,8 @@
+name: EconomyAPI
+api: [ "5.0.0" ]
+main: onebone\economyapi\EconomyAPI
+version: 5.9.0
+author: MyDeacy
+load: STARTUP
+depend: [ "MyEconomy" ]
+description: "EconomyAPI compatibility adapter for MyEconomy"
