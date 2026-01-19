@@ -16,8 +16,6 @@ use onebone\economyapi\event\money\MoneyChangedEvent;
 use onebone\economyapi\event\money\PayMoneyEvent;
 use onebone\economyapi\event\money\ReduceMoneyEvent;
 use onebone\economyapi\event\money\SetMoneyEvent;
-use pocketmine\event\EventHandler;
-use pocketmine\event\EventPriority;
 use pocketmine\event\Listener;
 
 /**
@@ -39,9 +37,9 @@ final class EconomyEventBridge implements Listener {
 	/**
 	 * Handles account create.
 	 *
+	 * @priority LOWEST
 	 * @param NewAccountCreateEvent $event Event.
 	 */
-	#[EventHandler(priority: EventPriority::LOWEST)]
 	public function onAccountCreate(NewAccountCreateEvent $event) :void {
 		$legacy = new CreateAccountEvent(
 			$this->plugin,
@@ -62,9 +60,9 @@ final class EconomyEventBridge implements Listener {
 	/**
 	 * Handles add money.
 	 *
+	 * @priority LOWEST
 	 * @param NewAddMoneyEvent $event Event.
 	 */
-	#[EventHandler(priority: EventPriority::LOWEST)]
 	public function onAddMoney(NewAddMoneyEvent $event) :void {
 		$legacy = new AddMoneyEvent(
 			$this->plugin,
@@ -81,9 +79,9 @@ final class EconomyEventBridge implements Listener {
 	/**
 	 * Handles reduce money.
 	 *
+	 * @priority LOWEST
 	 * @param NewReduceMoneyEvent $event Event.
 	 */
-	#[EventHandler(priority: EventPriority::LOWEST)]
 	public function onReduceMoney(NewReduceMoneyEvent $event) :void {
 		$legacy = new ReduceMoneyEvent(
 			$this->plugin,
@@ -100,9 +98,9 @@ final class EconomyEventBridge implements Listener {
 	/**
 	 * Handles set money.
 	 *
+	 * @priority LOWEST
 	 * @param NewSetMoneyEvent $event Event.
 	 */
-	#[EventHandler(priority: EventPriority::LOWEST)]
 	public function onSetMoney(NewSetMoneyEvent $event) :void {
 		$legacy = new SetMoneyEvent(
 			$this->plugin,
@@ -119,9 +117,9 @@ final class EconomyEventBridge implements Listener {
 	/**
 	 * Handles pay money.
 	 *
+	 * @priority LOWEST
 	 * @param NewPayMoneyEvent $event Event.
 	 */
-	#[EventHandler(priority: EventPriority::LOWEST)]
 	public function onPayMoney(NewPayMoneyEvent $event) :void {
 		$legacy = new PayMoneyEvent(
 			$this->plugin,
@@ -138,9 +136,9 @@ final class EconomyEventBridge implements Listener {
 	/**
 	 * Handles money changed.
 	 *
+	 * @priority MONITOR
 	 * @param NewMoneyChangedEvent $event Event.
 	 */
-	#[EventHandler(priority: EventPriority::MONITOR)]
 	public function onMoneyChanged(NewMoneyChangedEvent $event) :void {
 		$legacy = new MoneyChangedEvent(
 			$this->plugin,
